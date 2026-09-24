@@ -336,11 +336,13 @@ function getCarrito() {
     return datos ? JSON.parse(datos) : [];
 }
 
+// Funcion guardar Carrito de compras
 function guardarCarrito(carrito) {
     localStorage.setItem("vapro_carrito", JSON.stringify(carrito));
     actualizarBadgeCarrito();
 }
 
+// Funcion para agregar juegos al carrito
 function agregarAlCarrito(idJuego, cantidad = 1) {
     let juego = getJuegoById(idJuego);
     if (!juego) return false;
@@ -364,6 +366,7 @@ function agregarAlCarrito(idJuego, cantidad = 1) {
     return true;
 }
 
+// Funcion para eliminar juegos del carrito
 function eliminarDelCarrito(idJuego) {
     let carrito = getCarrito();
     let filtrados = [];
@@ -388,6 +391,7 @@ function cambiarCantidadCarrito(idJuego, nuevaCantidad) {
     }
 }
 
+// Funcion para vaciar carrito
 function vaciarCarrito() {
     localStorage.removeItem("vapro_carrito");
     actualizarBadgeCarrito();
